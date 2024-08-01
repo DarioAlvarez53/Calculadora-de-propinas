@@ -22,12 +22,16 @@ export default function useOrder() {
             const newItem : OrderItem = {...item, quantity: 1}        
             setOrder([...order, newItem])
         }
+    }
 
-        
+    //Funcion para eliminar productos de la orden
+    const removeItem = (id: MenuItems['id']) => {
+        setOrder(order.filter(item => item.id !== id))
     }
 
     return {
         order,
-        addItem
+        addItem,
+        removeItem
     }
 }
