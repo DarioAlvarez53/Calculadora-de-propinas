@@ -16,7 +16,7 @@ export default function OrderContents({order, removeItem}: OrderContentProps) {
                     <p className="text-center">La orden esta vacia</p>
                 : (
                     order.map(item => (
-                        <div key={item.id} className="grid grid-cols-12">
+                        <div key={item.id} className="grid grid-cols-12 border-b border-r p-2 rounded-lg border-blue-400">
                             <div className="col-span-6">
                                 <p>{item.name}</p>
                                 <p>Precio: {formatCurrency(item.price)}</p>
