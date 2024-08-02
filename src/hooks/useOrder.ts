@@ -4,6 +4,8 @@ import type { MenuItems, OrderItem } from "../types"
 export default function useOrder() {
 
     const[order, setOrder] = useState<OrderItem[]>([]);
+    //Estado para propinas
+    const[tip, setTip] = useState(0);
 
     //Fncion para agregar items al cosnumo
     const addItem = (item: MenuItems) => {
@@ -29,9 +31,19 @@ export default function useOrder() {
         setOrder(order.filter(item => item.id !== id))
     }
 
+    //Funcion para reiniciar la orden
+    const placeOrder = () => {
+        setOrder([])
+        setTip(0)
+        
+    }
+
     return {
         order,
+        tip,
+        setTip,
         addItem,
-        removeItem
+        removeItem,
+        placeOrder
     }
 }
